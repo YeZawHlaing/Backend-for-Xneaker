@@ -3,7 +3,6 @@ package com.backend.Xneaker.controller;
 
 import com.backend.Xneaker.model.User;
 import com.backend.Xneaker.service.UserService;
-import com.backend.Xneaker.service.serviceImp.UserServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +32,10 @@ public class UserController {
 
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody User user){
+        return userService.verifyUser(user) ;
+    }
 
 }
 
