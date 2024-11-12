@@ -40,10 +40,10 @@ public class UserServiceImp implements UserService {
     @Override
     public String verifyUser(User user){
 
-        Authentication authentication=authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getName(),user.getPassword()));
+        Authentication authentication=authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
 
         if(authentication.isAuthenticated()){
-            return tokenService.generateToken(user.getName());
+            return tokenService.generateToken(user.getUsername());
         }
         return "failed";
     }
